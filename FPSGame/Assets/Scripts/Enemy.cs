@@ -15,10 +15,12 @@ public class Enemy : MonoBehaviour
     {
         pathFinder = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        StartCoroutine(UpdatePath());
     }
     void Update()
     {
-        
+        //pathFinder.SetDestination(target.position);
     }
     IEnumerator UpdatePath()
     {
