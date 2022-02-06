@@ -5,10 +5,15 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     public Transform playerBody;
+    public GameObject bulletSpawnPoint;
+    public GameObject bullet;
 
     public float mouseSensitivity = 50f;
+    public float speed = 5f;
+    public float maxDistance;
 
     float xRotation = 0f;
+    //float waitTime = 0.5f;
 
     void Start()
     {
@@ -19,6 +24,9 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
         RotatceCamera();
+
+        
+       
 
     }
     void RotatceCamera()
@@ -32,4 +40,6 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
+
+   
 }
