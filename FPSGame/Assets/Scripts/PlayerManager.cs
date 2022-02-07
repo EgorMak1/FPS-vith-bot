@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    
-    void Start()
+    #region Singleton
+    public static PlayerManager instance;
+    void Awake()
     {
-        
+        instance = this;
     }
+    #endregion
 
-  
-    void Update()
-    {
-        
-    }
-
+    public GameObject player;
 }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     public Transform playerBody;
-    public GameObject bulletSpawnPoint;
-    public GameObject bullet;
+    //public GameObject bulletSpawnPoint;
+    //public GameObject bullet;
 
     public float mouseSensitivity = 50f;
     public float speed = 5f;
@@ -19,15 +19,9 @@ public class MouseLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-
     void Update()
     {
         RotatceCamera();
-
-        
-       
-
     }
     void RotatceCamera()
     {
@@ -40,6 +34,4 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
-
-   
 }
