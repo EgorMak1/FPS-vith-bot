@@ -5,14 +5,15 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour
 {
-    NavMeshAgent pathFinder;
+    GunEnemy gunEnemy;
+    NavMeshAgent agent;
     Transform target;
 
     public float lookRadius = 5f;
 
     void Start()
     {
-        pathFinder = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform ;
 
     
@@ -27,11 +28,12 @@ public class EnemyController : MonoBehaviour
 
         if (distance <= lookRadius)// следует только в определенном радиусе
         {
-            pathFinder.SetDestination(target.position);
-            if (distance <= pathFinder.stoppingDistance)
+            agent.SetDestination(target.position);
+            if (distance <= agent.stoppingDistance)
             {
                 //Attack the target
                 FaceTarget();
+                gunEnemy.Shoot();
             }
         }
     }
@@ -39,6 +41,7 @@ public class EnemyController : MonoBehaviour
 
     void FaceTarget()
     {
+        
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);

@@ -16,18 +16,19 @@ public class Gun : MonoBehaviour
             //nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
-        void Shoot()
-        {
-            RaycastHit hit;
+        
+    }
+    void Shoot()
+    {
+        RaycastHit hit;
 
-            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+            CharacterStats enemy = hit.transform.GetComponent<CharacterStats>();
+            if (enemy != null)
             {
-                Debug.Log(hit.transform.name);
-                CharacterStats enemy = hit.transform.GetComponent<CharacterStats>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(damage);
-                }
+                enemy.TakeDamage(damage);
             }
         }
     }

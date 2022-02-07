@@ -5,15 +5,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform playerBody;
-    //public GameObject bulletSpawnPoint;
-    //public GameObject bullet;
+
 
     public float mouseSensitivity = 50f;
     public float speed = 5f;
-    public float maxDistance;
-
     float xRotation = 0f;
-    //float waitTime = 0.5f;
+
 
     void Start()
     {

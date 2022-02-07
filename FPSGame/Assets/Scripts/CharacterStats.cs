@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    //public int currentHealth { get; private set; }
+    public int currentHealth { get; private set; }
 
-    public int damage;
+   
     public int maxHealth;
 
-    //void Awake()
-    //{
-    //    currentHealth = maxHealth;
-    //}
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void TakeDamage(int damage)
     {
-        maxHealth -= damage;
+        currentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage");
-         if(maxHealth <= 0)
+         if(currentHealth <= 0)
         {
             Die();
         }

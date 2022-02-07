@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : Interactable
 {
-    //public override void Interact()
-    //{
-    //    base.Intereact();
-    //}
+    PlayerManager playarManager;
+    public override void Interact()
+    {
+        base.Interact();
+    }
 }

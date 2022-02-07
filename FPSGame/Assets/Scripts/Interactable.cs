@@ -9,6 +9,11 @@ public class Interactable : MonoBehaviour
     bool isFocus = false;
     Transform player;
 
+    public virtual void Interact()
+    {
+        // This method is meant to be overwritten
+        //Debug.Log("Interacting with " + transform.name);
+    }
     void Update()
     {
         if (isFocus)
